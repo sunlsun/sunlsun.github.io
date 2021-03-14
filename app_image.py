@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request
 import os
+from flask_cors import CORS
 from PIL import Image
 
 
 app = Flask(__name__)
-
+# app.config.from_object('satcounter_config')
+CORS(app)
 '''
 이미지 처리 함수
 '''
@@ -22,7 +24,7 @@ def image_change_bw(image):
 플라스크
 '''
 
-@app.route("/index")
+@app.route("/")
 def index():
     return render_template('image.html')
 
